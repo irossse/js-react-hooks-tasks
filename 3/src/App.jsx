@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 
 import Home from './Home.jsx';
@@ -26,7 +26,12 @@ const themes = [
 
 const ThemeProvider = ({ children }) => {
   // BEGIN (write your solution here)
+  const [theme, setTheme]= useState(themes[0])
 
+
+  return <ThemeContext.Provider value={{theme, setTheme, themes}}>
+    {children}
+  </ThemeContext.Provider>
   // END
 };
 
